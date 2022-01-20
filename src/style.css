@@ -1,8 +1,7 @@
 .submit {
-  height: 49px;
+  height: 44px;
   min-width: 273px;
   width: 42px;
-  height: 42px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -12,7 +11,7 @@
     'Noto Color Emoji';
   font-size: 22px;
   color: aliceblue;
-  margin-right: 30px;
+  margin-left: 30px;
 }
 .submit:hover {
   color: #929faa;
@@ -41,6 +40,7 @@
 }
 .search-form {
   display: inline;
+  vertical-align: top;
   /* align-items: center;
   align-self: center; */
   padding-bottom: 64px;
@@ -55,6 +55,8 @@
   border-radius: 5px;
   outline: none;
   border: none;
+  font-size: 22px;
+  padding-left: 10px;
 }
 body {
   color: aliceblue;
@@ -71,42 +73,45 @@ body:after {
   background-position: bottom;
   background-size: cover;
 }
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 30px;
-  margin-top: 30px;
-}
+
 .gallery {
   display: flex;
-  flex-basis: calc(100% / 3 - 30px);
-  margin-left: 30px;
-  margin-top: 30px;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-top: -10px;
 }
-/* input {
-  width: 100%;
-  height: 42px;
-  padding-left: 10px;
-  border: 2px solid #7ba7ab;
-  border-radius: 5px;
-  outline: none;
-  background: var(--placeholder);
-  color: var(--input-text);
-} */
-/* .btn-submit {
-  position: absolute;
-  top: 0;
-  right: 0px;
-  width: 42px;
-  height: 42px;
-  border: none;
-  background: var(--btn-bg);
-  border-radius: 0 5px 5px 0;
+.photo-card {
+  flex-basis: calc(100% / 3 - 30px);
+  margin-left: 10px;
+  margin-top: 30px;
+  width: 370px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 5px;
+  width: 370px;
+}
+.js-sentanil {
+  display: none;
+}
+
+.gallery__item img {
+  max-width: 100%;
+  /* height: auto; */
+}
+
+.image {
+  display: block;
+  height: 230px;
+}
+.img-block {
   cursor: pointer;
 }
-.btn-submit:before {
-  content: '\f002';
-  font-family: FontAwesome;
-  font-size: 16px;
-  color: var(--btn-color);
-} */
+
+.info {
+  display: flex;
+}
+
+.info-item {
+  flex-basis: calc(100% / 4 - 30px);
+  margin-left: 10px;
+  text-align: center;
+}

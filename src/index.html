@@ -21,7 +21,7 @@
   <body>
     <div class="container">
       <h1 class="display-4">Let's find!</h1>
-      <p class="lead">Write down a word and look a lot of pictures.</p>
+      <p class="lead">Write down a word and take a lot of pictures.</p>
 
       <form class="search-form" id="search-form">
         <input
@@ -33,18 +33,17 @@
         />
         <button class="submit" id="" type="submit">Search</button>
       </form>
-      <div class="wrapper">
-        <div class="gallery"></div>
+      <div class="gallery"></div>
+      <div class="js-sentanil">
+        <button class="btn btn-primary load-more" type="button">
+          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span class="sr-only">Loading...</span>
+        </button>
+        <button class="btn btn-spinner btn-primary" type="button" disabled>
+          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          Loading...
+        </button>
       </div>
-      <div class="js-sentanil"></div>
-      <button class="btn btn-primary load-more" type="button" disabled>
-        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-        <span class="sr-only">Loading...</span>
-      </button>
-      <button class="btn btn-spinner btn-primary" type="button" disabled>
-        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-        Loading...
-      </button>
     </div>
     <script src="./index.js"></script>
   </body>

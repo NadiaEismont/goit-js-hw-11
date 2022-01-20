@@ -3,6 +3,8 @@ import template from '/template.hbs';
 var debounce = require('lodash.debounce');
 import Notiflix from 'notiflix';
 import NewApiServer from './request';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const refs = {
     input: document.querySelector('input[name="searchQuery"]'),
@@ -14,9 +16,14 @@ const refs = {
 
 const newApiServer = new NewApiServer();
 
+let galleryLightBox = new SimpleLightbox('.photo-card a', {
+    captionsData: "alt",
+    captionDelay: 250
+});
+
 async function onSubmit(e) {
     e.preventDefault();
-    refs.buttonLoadMore.setAttribute('disabled', 'disabled');
+    refs.buttonLoadMore.disabled = true;
     try {
         console.log(e.currentTarget.elements);
         newApiServer.query = e.currentTarget.elements.searchQuery.value;
@@ -42,9 +49,15 @@ const renderFetchPics = function (markupList) {
 async function onLoadMore() {
     const searchResult = await newApiServer.fetchPics();
     renderFetchPics(searchResult.hits);
-    // if (refs.btnSearch.hasAttribute('disabled')) refs.btnSearch.removeAttribute('disabled');
-    if (refs.buttonLoadMore.hasAttribute('disabled')) { refs.buttonLoadMore.removeAttribute('disabled'); }
+    if (searchResult) {
+        refs.buttonLoadMore.disabled = false;
+    } else {
+        refs.buttonLoadMore.disabled = true;
+    }
 
+    // if (refs.btnSearch.hasAttribute('disabled')) refs.btnSearch.removeAttribute('disabled');
+    // if (refs.buttonLoadMore.hasAttribute('disabled')) { refs.buttonLoadMore.removeAttribute('disabled'); }
+    refs.buttonLoadMore.disabled = false;
 
 
 }

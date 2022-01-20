@@ -1,19 +1,21 @@
 {{#each this}}
 <div class="photo-card">
+  <div class="img-block">
     <a class="gallery__item" href="{{largeImageURL}}">
-  <img src="{{webformatURL}}" alt="{{tags}}" loading="lazy" /></a>
+  <img src="{{webformatURL}}" alt="{{tags}}" loading="lazy" class="image" width="370"/></a>
+  </div>
   <div class="info">
     <p class="info-item">
-      <b>Likes:{{likes}}</b>
+      <b>Likes<br>{{likes}}</b>
     </p>
     <p class="info-item">
-      <b>Views:{{views}}</b>
+      <b>Views<br>{{views}}</b>
     </p>
     <p class="info-item">
-      <b>Comments:{{comments}}</b>
+      <b>Comments<br>{{comments}}</b>
     </p>
     <p class="info-item">
-      <b>Downloads:{{downloads}}</b>
+      <b>Downloads<br>{{downloads}}</b>
     </p>
   </div>
 </div>
