@@ -16,6 +16,10 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -35,16 +39,20 @@
       </form>
       <div class="gallery"></div>
       <div class="js-sentanil">
-        <button class="btn btn-primary load-more" type="button">
+        <div class="btn-wrapper">
+          <!-- <button class="btn btn-primary load-more" type="button">
           <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
           <span class="sr-only">Loading...</span>
-        </button>
-        <button class="btn btn-spinner btn-primary" type="button" disabled>
-          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-          Loading...
-        </button>
+        </button> -->
+          <button class="btn btn-spinner btn-primary load-more" type="button">
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Loading...
+          </button>
+        </div>
       </div>
+      <a id="button"></a>
     </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
     <script src="./index.js"></script>
   </body>
 </html>

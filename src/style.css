@@ -86,7 +86,9 @@ body:after {
 .js-sentanil {
   display: none;
 }
-
+.btn-wrapper {
+  text-align: center;
+}
 .gallery__item img {
   max-width: 100%;
   /* height: auto; */
@@ -118,4 +120,42 @@ body:after {
   background-color: #427573;
   border-color: #427573;
   color: aliceblue;
+}
+.load-more {
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+#button {
+  display: inline-block;
+  background-color: #00eaff60;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color 0.3s;
+  z-index: 1000;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #737a80;
+}
+#button:active {
+  background-color: #555;
+}
+#button::after {
+  content: '\f077';
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
 }
