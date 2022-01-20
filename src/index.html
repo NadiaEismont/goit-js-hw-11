@@ -10,14 +10,45 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
-      <button type="submit">Search</button>
-    </form>
-    <div class="gallery"></div>
-    <button type="button" class="load-more">Load more</button>
+    <div class="container">
+      <h1 class="display-4">Let's find!</h1>
+      <p class="lead">
+        This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+        to featured content or information.
+      </p>
+
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          class="input"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="submit" id="" type="submit">Search</button>
+      </form>
+      <div class="wrapper">
+        <div class="gallery"></div>
+      </div>
+      <div class="js-sentanil"></div>
+      <button class="btn btn-primary load-more" type="button" disabled>
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        <span class="sr-only">Loading...</span>
+      </button>
+      <button class="btn btn-spinner btn-primary" type="button" disabled>
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        Loading...
+      </button>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>

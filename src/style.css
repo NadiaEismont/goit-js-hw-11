@@ -1,0 +1,112 @@
+.submit {
+  height: 49px;
+  min-width: 273px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #737a80;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  font-size: 22px;
+  color: aliceblue;
+  margin-right: 30px;
+}
+.submit:hover {
+  color: #929faa;
+  background-color: #53595f;
+}
+
+.submit:before {
+  content: '';
+  background-image: url(./images/submarine-nautic.svg);
+  display: block;
+  position: absolute;
+  /* background-size: 65.32px 70px; */
+  background-repeat: no-repeat;
+  background-position: bottom 15px left;
+  height: 47px;
+  width: 82.9px;
+  fill: currentColor;
+}
+
+.spinner-grow {
+  background-color: #737a80;
+  color: #737a80;
+}
+.btn-primary {
+  color: #6c757d;
+}
+.search-form {
+  display: inline;
+  /* align-items: center;
+  align-self: center; */
+  padding-bottom: 64px;
+  padding-top: 64px;
+  /* justify-content: center;
+  align-content: center;
+  vertical-align: top; */
+}
+.input {
+  height: 44px;
+  min-width: 750px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+body {
+  color: aliceblue;
+}
+body:after {
+  background-image: url(./images/image-from-rawpixel-id-3864278-original.jpg);
+  content: '';
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-position: bottom;
+  background-size: cover;
+}
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.gallery {
+  display: flex;
+  flex-basis: calc(100% / 3 - 30px);
+  margin-left: 30px;
+  margin-top: 30px;
+}
+/* input {
+  width: 100%;
+  height: 42px;
+  padding-left: 10px;
+  border: 2px solid #7ba7ab;
+  border-radius: 5px;
+  outline: none;
+  background: var(--placeholder);
+  color: var(--input-text);
+} */
+/* .btn-submit {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: var(--btn-bg);
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.btn-submit:before {
+  content: '\f002';
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: var(--btn-color);
+} */

@@ -2,41 +2,35 @@ import './sass/main.scss';
 import template from '/template.hbs';
 var debounce = require('lodash.debounce');
 import Notiflix from 'notiflix';
+import NewApiServer from './request';
 
 const refs = {
     input: document.querySelector('input[name="searchQuery"]'),
     gallery: document.querySelector('.gallery'),
-    buttonLoadMore: document.querySelector('.load-more')
+    buttonLoadMore: document.querySelector('.load-more'),
+    buttonSubmit: document.querySelector('button[type="submit"]'),
+    form: document.querySelector('.search-form')
 }
+
+const newApiServer = new NewApiServer();
 
 async function onSubmit(e) {
-    e.preventDefault
+    e.preventDefault();
+    refs.buttonLoadMore.setAttribute('disabled', 'disabled');
     try {
-        const picList = await fetchPic();
-        renderFetchPics(picList);
-    } catch (error) {
-        Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
-    }
-}
-
-
-const pixabayKey = '25251532-72426a9e0e55162032e249781';
-const searchParams = new URLSearchParams({
-    key: pixabayKey,
-    q: refs.input.value,
-    image_type: "photo",
-    orientation: "horizontal",
-    safesearch: true
-})
-async function fetchPics() {
-    try {
-        const aPic = await fetch(`https://pixabay.com/api/?${searchParams}`)
-        if (!aPic.ok) {
-            throw new Error(aPic.status);
+        console.log(e.currentTarget.elements);
+        newApiServer.query = e.currentTarget.elements.searchQuery.value;
+        console.log(newApiServer.query);
+        if (newApiServer.query === '') {
+            return Notiflix.Notify.failure('Write a word to search')
         }
-        return aPic.json();
+        const searchResult = await newApiServer.fetchPics();
+        newApiServer.resetPage();
+        renderFetchPics(searchResult.hits);
+
     } catch (error) {
-        console.log(error.message);
+        console.log(error)
+        Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
     }
 }
 
@@ -45,6 +39,15 @@ const renderFetchPics = function (markupList) {
         'beforeend', template(markupList));
 }
 
+async function onLoadMore() {
+    const searchResult = await newApiServer.fetchPics();
+    renderFetchPics(searchResult.hits);
+    // if (refs.btnSearch.hasAttribute('disabled')) refs.btnSearch.removeAttribute('disabled');
+    if (refs.buttonLoadMore.hasAttribute('disabled')) { refs.buttonLoadMore.removeAttribute('disabled'); }
+
+
+
+}
 // function handleScroll() {
 //     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 //     if (!isLoading && clientHeight + scrollTop >= scrollHeight - 5 && currentPage < maxPage) {
@@ -57,4 +60,7 @@ window.scrollBy({
 
 });
 
-refs.input.addEventListener('input', debounce(onSubmit, 300));
+
+refs.form.addEventListener('submit', onSubmit);
+refs.buttonLoadMore.addEventListener('click', onLoadMore);
+// refs.gallery.addEventListener('click', showLargeImg);
