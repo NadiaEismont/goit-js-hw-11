@@ -32,22 +32,16 @@
 }
 
 .spinner-grow {
-  background-color: #737a80;
-  color: #737a80;
+  background-color: #61b4b2;
 }
 .btn-primary {
-  color: #6c757d;
+  background-color: #90d6d4;
 }
 .search-form {
   display: inline;
   vertical-align: top;
-  /* align-items: center;
-  align-self: center; */
   padding-bottom: 64px;
   padding-top: 64px;
-  /* justify-content: center;
-  align-content: center;
-  vertical-align: top; */
 }
 .input {
   height: 44px;
@@ -86,7 +80,7 @@ body:after {
   margin-top: 30px;
   width: 370px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 5px;
+  /* padding: 5px; */
   width: 370px;
 }
 .js-sentanil {
@@ -114,4 +108,14 @@ body:after {
   flex-basis: calc(100% / 4 - 30px);
   margin-left: 10px;
   text-align: center;
+}
+.btn-primary {
+  background-color: #737a80;
+  border-color: #737a80;
+  color: aliceblue;
+}
+.btn-primary:disabled {
+  background-color: #427573;
+  border-color: #427573;
+  color: aliceblue;
 }

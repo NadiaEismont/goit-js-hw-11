@@ -12,7 +12,7 @@ export default class NewApiServer {
             orientation: "horizontal",
             safesearch: true,
             page: this.page,
-            per_page: 40
+            per_page: 39
         })
         const aPic = await fetch(`https://pixabay.com/api/?${searchParams}`)
         if (!aPic.ok) {

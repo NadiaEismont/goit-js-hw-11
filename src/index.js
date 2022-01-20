@@ -11,15 +11,13 @@ const refs = {
     gallery: document.querySelector('.gallery'),
     buttonLoadMore: document.querySelector('.load-more'),
     buttonSubmit: document.querySelector('button[type="submit"]'),
-    form: document.querySelector('.search-form')
+    form: document.querySelector('.search-form'),
+    loading: document.querySelector('.js-sentanil')
 }
 
 const newApiServer = new NewApiServer();
 
-let galleryLightBox = new SimpleLightbox('.photo-card a', {
-    captionsData: "alt",
-    captionDelay: 250
-});
+
 
 async function onSubmit(e) {
     e.preventDefault();
@@ -34,7 +32,7 @@ async function onSubmit(e) {
         const searchResult = await newApiServer.fetchPics();
         newApiServer.resetPage();
         renderFetchPics(searchResult.hits);
-
+        refs.loading.style.display = 'block';
     } catch (error) {
         console.log(error)
         Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
@@ -44,13 +42,17 @@ async function onSubmit(e) {
 const renderFetchPics = function (markupList) {
     refs.gallery.insertAdjacentHTML(
         'beforeend', template(markupList));
+    var galleryLightBox = new SimpleLightbox('.gallery__item', {
+        captionsData: "alt",
+        captionDelay: 250
+    });
 }
 
 async function onLoadMore() {
     const searchResult = await newApiServer.fetchPics();
     renderFetchPics(searchResult.hits);
     if (searchResult) {
-        refs.buttonLoadMore.disabled = false;
+        refs.loading.style.display = 'block';
     } else {
         refs.buttonLoadMore.disabled = true;
     }
