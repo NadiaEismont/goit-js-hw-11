@@ -12,7 +12,9 @@ const refs = {
     buttonLoadMore: document.querySelector('.load-more'),
     buttonSubmit: document.querySelector('button[type="submit"]'),
     form: document.querySelector('.search-form'),
-    loading: document.querySelector('.js-sentanil')
+    loading: document.querySelector('.js-sentanil'),
+    spinner: document.querySelector('#spinner'),
+    isVisible: document.querySelector('isVisible')
 }
 
 const newApiServer = new NewApiServer();
@@ -47,9 +49,12 @@ const renderFetchPics = function (hits) {
     refs.gallery.insertAdjacentHTML(
         'beforeend', template(hits));
     galleryLightBox.refresh()
+
 }
 
 async function onLoadMore() {
+    refs.spinner.hidden = false;
+    await new Promise(r => setTimeout(r, 1000));
     const searchResult = await newApiServer.fetchPics();
     renderFetchPics(searchResult.hits);
     const { height: cardHeight } = document
@@ -60,7 +65,10 @@ async function onLoadMore() {
         top: cardHeight * 2,
         behavior: 'smooth',
     });
+    refs.spinner.hidden = true;
+
 }
+
 function onInput() {
     if (refs.input.value === '') {
         refs.gallery.innerHTML = '';

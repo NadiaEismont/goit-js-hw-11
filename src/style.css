@@ -127,6 +127,12 @@ body:after {
   margin-bottom: 20px;
   cursor: pointer;
   justify-content: center;
+  background-color: #00eaff60;
+  border-color: transparent;
+}
+.load-more:hover {
+  background-color: #737a80;
+  border-color: transparent;
 }
 
 #button {
