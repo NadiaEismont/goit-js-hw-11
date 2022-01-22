@@ -13,6 +13,14 @@
   color: aliceblue;
   margin-left: 30px;
 }
+@media screen and (max-width: 480px) {
+  .submit {
+    justify-content: center;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    min-width: 250px;
+  }
+}
 .submit:hover {
   color: #929faa;
   background-color: #53595f;
@@ -51,9 +59,14 @@
   outline: none;
   border: none;
   font-size: 15px;
-  padding-left: 10px;
 }
-
+@media screen and (max-width: 480px) {
+  .input {
+    justify-content: center;
+    margin-bottom: 15px;
+    padding-left: 10px;
+  }
+}
 @media screen and (min-width: 800px) and (max-width: 1200px) {
   .input {
     font-size: 19px;
@@ -99,7 +112,16 @@ body:after {
   background-position: bottom;
   background-size: cover;
 }
-
+@media screen and (max-width: 480px) {
+  .search-form {
+    padding: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+  }
+}
 .gallery {
   display: flex;
   flex-wrap: wrap;
