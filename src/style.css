@@ -1,6 +1,6 @@
 .submit {
   height: 44px;
-  min-width: 273px;
+  min-width: 325px;
   width: 42px;
   border: none;
   border-radius: 5px;
@@ -43,14 +43,46 @@
   padding-bottom: 64px;
   padding-top: 64px;
 }
+
 .input {
   height: 44px;
-  min-width: 750px;
+  min-width: 250px;
   border-radius: 5px;
   outline: none;
   border: none;
-  font-size: 22px;
+  font-size: 15px;
   padding-left: 10px;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .input {
+    font-size: 19px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .input {
+    min-width: 750px;
+    font-size: 22px;
+  }
+}
+
+.container-mobile-friendly {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container-mobile-friendly {
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container-mobile-friendly {
+    max-width: 1200px;
+  }
 }
 body {
   color: aliceblue;
