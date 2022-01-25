@@ -75,8 +75,8 @@ async function onLoadMore() {
     refs.spinner.hidden = false;
     await new Promise(r => setTimeout(r, 1000));
     const searchResult = await newApiServer.fetchPics();
-    renderFetchPics(searchResult.hits);
-    countOfImages(searchResult.hits.length);
+    renderFetchPics(searchResult.hits); /*рендерим картинки */
+    countOfImages(searchResult.hits.length); /*рахуємо кількість завантажених картинок */
     const { height: cardHeight } = document
         .querySelector('.gallery')
         .firstElementChild.getBoundingClientRect();
@@ -113,7 +113,19 @@ btn.addEventListener('click', function (e) {
     });
 });
 
-
+const options = {
+    root: null,
+    rootMargin: "10px 20px 30px 40px",
+    threshold: 1
+}
+const handleObserver = ([button]) => {
+    if (button.isIntersecting) {
+        onLoadMore()
+    }
+}
+const observer = new IntersectionObserver(handleObserver, options);
+observer.observe(refs.buttonLoadMore);
+console.log(observer);
 
 refs.form.addEventListener('submit', onSubmit);
 refs.buttonLoadMore.addEventListener('click', onLoadMore);

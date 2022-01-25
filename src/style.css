@@ -114,6 +114,23 @@ body:after {
   background-size: cover;
 }
 @media screen and (max-width: 480px) {
+  body:after {
+    background-image: url(./images/silas-baisch-K785Da4A_JA-unsplash.jpg);
+    content: '';
+    position: fixed;
+
+    top: 0;
+    height: 100vh;
+    width: 100vh;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-position: bottom;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 480px) {
   .search-form {
     padding: 40px;
     margin-right: auto;

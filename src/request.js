@@ -16,7 +16,7 @@ export default class NewApiServer {
             page: this.page,
             per_page: this.perPage,
         })
-        const aPic = await fetch(`https://pixabay.com/api/?${searchParams}`)
+        const aPic = await fetch(`https://pixabay.com/api/?${searchParams}`) /*має властивість hits, в якій містяться картинки*/
         if (!aPic.ok) {
             throw new Error(aPic.status);
         }
